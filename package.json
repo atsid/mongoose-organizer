@@ -1,0 +1,25 @@
+{
+  "name": "mongoose-organizer",
+  "version": "0.0.1",
+  "description": "Mongoose Model Management",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/atsid/mongoose-organizer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/atsid/mongoose-organizer/issues"
+  },
+  "keywords": [
+    "mongoose",
+    "mongodb"
+  ],
+  "author": "Applied Technical Systems, Inc",
+  "contributors": [
+    "Chris Trevino <chris.trevino@atsid.com>"
+  ],
+  "license": "Apache"
+}
