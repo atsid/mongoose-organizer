@@ -2,37 +2,37 @@
 var _ = require('lodash'),
     mongoose = require('mongoose'),
     debug = require('debug')('application:persistence'),
+    SchemaConfiguration = require('./schema_configuration'),
     path = require('path');
 
 module.exports = {
     /**
      * Creates a schema using the given configuration object.
      */
-    makeSchema (configuration) {
+    makeSchema (conf) {
+        let configuration = new SchemaConfiguration(conf);
         debug('creating ' + configuration.name + ' schema');
-        let Schema = mongoose.Schema,
-            schemaDefinition = require(configuration.definitionPath),
-            schemaOptions = configuration.options || require(configuration.optionsPath),
-            schemaMethods = require(configuration.methodsPath),
-            schemaHandlers = require(configuration.handlerPath),
-            NewSchema = new Schema(schemaDefinition, schemaOptions);
+        let NewSchema = new mongoose.Schema(configuration.definition, configuration.options);
 
         let populateSchemaMethods = () => {
-            let entries = Object.entries(schemaMethods);
+            let entries = Object.entries(configuration.methods);
             for (let entry of entries) {
                 let methodName = entry[0],
                     method = entry[1];
                 debug(`defining method ${configuration.name}.${methodName} methodName`);
                 NewSchema.methods[methodName] = method;
             }
+        };
 
-            for (let handler of schemaHandlers.handlers) {
+        let populateSchemaHandlers = () => {
+            for (let handler of configuration.handlers.handlers) {
                 debug(`installing ${configuration.name} ${handler.type}-${handler.event} handler "${handler.description}"`);
                 NewSchema[handler.type](handler.event, handler.handler);
             }
         };
 
         populateSchemaMethods();
+        populateSchemaHandlers();
         debug(configuration.name + ' schema created');
         return NewSchema;
     },

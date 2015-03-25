@@ -17,7 +17,7 @@ let determineOptionValue = (config, explicitKey, pathKey, defaultValue) => {
     if (config[explicitKey]) {
         return config[explicitKey];
     } else if (config[pathKey]) {
-        return require(config[pathKey])
+        return require(config[pathKey]);
     } else {
         return defaultValue;
     }
@@ -34,4 +34,4 @@ class SchemaConfiguration {
     }
 }
 
-module.exports = SchemaConfiguration
+module.exports = SchemaConfiguration;
