@@ -25,11 +25,14 @@ let determineOptionValue = (config, explicitKey, pathKey, defaultValue) => {
 
 class SchemaConfiguration {
     constructor(config) {
+        if (!config) {
+            throw new Error("config parameter must be defined");
+        }
         this.name = config.name;
         this.definition = determineOptionValue(config, 'definition', 'definitionPath', {});
         this.options = determineOptionValue(config, 'options', 'optionsPath', defaultOptions);
         this.methods = determineOptionValue(config, 'methods', 'methodsPath', {});
-        this.virtual = determineOptionValue(config, 'virtuals', 'virtualsPath', {});
+        this.virtuals = determineOptionValue(config, 'virtuals', 'virtualsPath', {});
         this.handlers = determineOptionValue(config, 'handlers', 'handlersPath', {});
     }
 }
