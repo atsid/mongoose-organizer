@@ -1,3 +1,10 @@
+[![Build Status](https://travis-ci.org/atsid/mongoose-organizer.svg?branch=master)](https://travis-ci.org/atsid/mongoose-organizer)
+[![Coverage Status](https://coveralls.io/repos/atsid/mongoose-organizer/badge.svg)](https://coveralls.io/r/atsid/mongoose-organizer)
+[![Code Climate](https://codeclimate.com/github/atsid/mongoose-organizer/badges/gpa.svg)](https://codeclimate.com/github/atsid/mongoose-organizer)
+[![Dependency Status](https://david-dm.org/atsid/mongoose-organizer.svg)](https://david-dm.org/atsid/mongoose-organizer)
+
+[![NPM](https://nodei.co/npm/mongoose-organizer.png)](https://nodei.co/npm/mongoose-organizer/)
+
 # mongoose-organizer
 Mongoose Model Organization
 
