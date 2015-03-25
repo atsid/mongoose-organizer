@@ -24,9 +24,10 @@ describe("The Mongoose Organizer", () => {
     });
 
     it('can accept a mongoose connection as a parameter', () => {
-        let mongoose = require('mongoose').createConnection();
+        let mongoose = require('mongoose-q')(require('mongoose'));
         let User = require('../test/User2')(mongoose);
         expect(User).to.exist.and.to.be.a.function;
-        expect(User.modelName).to.equal("User");
+        expect(User.modelName).to.equal("User2");
+        expect(User.findQ).to.be.a.function;
     })
 });

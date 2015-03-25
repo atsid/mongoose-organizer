@@ -38,6 +38,8 @@
     "gulp-mocha": "^2.0.0",
     "isparta": "^2.2.0",
     "mongoose": "^3.8.25",
+    "mongoose-q": "0.0.16",
+    "q": "^1.2.0",
     "run-sequence": "^1.0.2"
   },
   "dependencies": {

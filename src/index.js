@@ -1,7 +1,6 @@
 'use strict';
 var _ = require('lodash'),
     debug = require('debug')('mongoose-organizer'),
-    mongoose = require('mongoose'),
     SchemaConfiguration = require('./schema_configuration'),
     path = require('path');
 
@@ -10,6 +9,7 @@ var _ = require('lodash'),
  */
 let makeSchema = (conf) => {
     let configuration = new SchemaConfiguration(conf);
+    let mongoose = configuration.mongoose;
     debug('creating ' + configuration.name + ' schema');
     let NewSchema = new mongoose.Schema(configuration.definition, configuration.options);
 
