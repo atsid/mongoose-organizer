@@ -1,4 +1,5 @@
 'use strict';
+let debug = require('debug')('mongoose-organizer');
 
 let defaultOptions = {
     toJSON: {virtual: true},
@@ -17,7 +18,12 @@ let determineOptionValue = (config, explicitKey, pathKey, defaultValue) => {
     if (config[explicitKey]) {
         return config[explicitKey];
     } else if (config[pathKey]) {
-        return require(config[pathKey]);
+        try {
+            return require(config[pathKey]);
+        } catch (err) {
+            debug(`caught error when requiring ${pathKey}. Using default configuration value`);
+            return defaultValue;
+        }
     } else {
         return defaultValue;
     }
@@ -32,8 +38,9 @@ class SchemaConfiguration {
         this.definition = determineOptionValue(config, 'definition', 'definitionPath', {});
         this.options = determineOptionValue(config, 'options', 'optionsPath', defaultOptions);
         this.methods = determineOptionValue(config, 'methods', 'methodsPath', {});
-        this.virtuals = determineOptionValue(config, 'virtuals', 'virtualsPath', {});
-        this.handlers = determineOptionValue(config, 'handlers', 'handlersPath', {});
+        this.virtuals = determineOptionValue(config, 'virtuals', 'virtualsPath', []);
+        this.handlers = determineOptionValue(config, 'handlers', 'handlersPath', []);
+        this.mongoose = config.mongoose || require('mongoose');
     }
 }
 

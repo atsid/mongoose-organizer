@@ -1,7 +1,7 @@
 'use strict';
 var _ = require('lodash'),
-    mongoose = require('mongoose'),
     debug = require('debug')('mongoose-organizer'),
+    mongoose = require('mongoose'),
     SchemaConfiguration = require('./schema_configuration'),
     path = require('path');
 
@@ -59,8 +59,9 @@ let autowire = (modelName, dir, optionOverrides = {}) => {
         virtualsPath: path.join(dir, modelName + '.virtuals')
     };
     _.assign(schemaOptions, optionOverrides);
+    let configuration = new SchemaConfiguration(schemaOptions);
     let schema = makeSchema(schemaOptions);
-    let model = mongoose.model(modelName, schema);
+    let model = configuration.mongoose.model(modelName, schema);
     return model;
 };
 
