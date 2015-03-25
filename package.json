@@ -1,6 +1,6 @@
 {
   "name": "mongoose-organizer",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Mongoose Model Management",
   "main": "index.js",
   "scripts": {
