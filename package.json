@@ -4,7 +4,7 @@
   "description": "Mongoose Model Management",
   "main": "index.js",
   "scripts": {
-    "test": "gulp"
+    "test": "gulp && CODECLIMATE_REPO_TOKEN=5beb25ba9fd091cc3d0ff6916606c68a4a8d158d9472fe603621d341c291e6f4 codeclimate < coverage/lcov.info"
   },
   "repository": {
     "type": "git",
@@ -25,6 +25,7 @@
   "devDependencies": {
     "babel": "^4.7.16",
     "chai": "^2.1.2",
+    "codeclimate-test-reporter": "0.0.4",
     "del": "^1.1.1",
     "esprima-fb": "^13001.1001.0-dev-harmony-fb",
     "gulp": "^3.8.11",
@@ -36,6 +37,7 @@
     "gulp-jscs": "^1.4.0",
     "gulp-jshint": "^1.9.4",
     "gulp-mocha": "^2.0.0",
+    "gulp-semver-tasks": "^0.1.0",
     "isparta": "^2.2.0",
     "mongoose": "^3.8.25",
     "mongoose-q": "0.0.16",
