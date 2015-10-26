@@ -2,7 +2,7 @@
 [![Test Coverage](https://codeclimate.com/github/atsid/mongoose-organizer/badges/coverage.svg)](https://codeclimate.com/github/atsid/mongoose-organizer)
 [![Code Climate](https://codeclimate.com/github/atsid/mongoose-organizer/badges/gpa.svg)](https://codeclimate.com/github/atsid/mongoose-organizer)
 [![Dependency Status](https://david-dm.org/atsid/mongoose-organizer.svg)](https://david-dm.org/atsid/mongoose-organizer)
-
+[![Dev Dependency Status](https://david-dm.org/atsid/mongoose-organizer/dev-status.svg)](https://david-dm.org/atsid/mongoose-organizer)
 [![NPM](https://nodei.co/npm/mongoose-organizer.png)](https://nodei.co/npm/mongoose-organizer/)
 
 # mongoose-organizer
